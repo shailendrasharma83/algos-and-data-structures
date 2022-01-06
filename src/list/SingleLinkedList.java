@@ -26,7 +26,6 @@ public class SingleLinkedList<T> {
 
         if (head == null) {
             head = newNode;
-            tail = newNode;
         } else {
             tail.next = newNode;
         }
