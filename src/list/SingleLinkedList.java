@@ -60,6 +60,29 @@ public class SingleLinkedList<T> {
         }
     }
 
+    public void delete(T value) {
+
+        if (head == null) {
+            return;
+        }
+
+        if (head.value == value) {
+            head = head.next;
+            return;
+        }
+
+        Node node = head.next;
+        Node prev = head;
+
+        while (node != null) {
+            if (node.value == value) {
+                prev.next = node.next;
+                return;
+            }
+            node = node.next;
+        }
+    }
+
     public void printList() {
         Node n = head;
         while (n != null) {

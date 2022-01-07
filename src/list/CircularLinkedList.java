@@ -35,6 +35,23 @@ public class CircularLinkedList<T> {
         length++;
     }
 
+    public void addNode(int position, T value) {
+        Node newNode = new Node(value);
+        if(head == null) {
+            head = newNode;
+            tail = newNode;
+            tail.next = head;
+        }
+
+        int counter = 0 ;
+        Node emptyNode;
+        Node node = head;
+        while (counter != position) {
+            counter++;
+
+        }
+    }
+
     public void printList() {
         Node n = head;
         do {
