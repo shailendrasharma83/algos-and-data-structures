@@ -55,6 +55,21 @@ public class InsertAtPositionInLinkedList {
         list.insert(2);
         System.out.println("\n------------Insert--------------");
         list.printList();
+
+        /*Create loop for testing */
+        list.head.next.next.next.next.next.next.next.next = list.head;
+
+        SingleLinkedList.Node node = list.head;
+
+        HashSet set = new HashSet();
+        while (node != null) {
+            if (set.contains(node)) {
+                System.out.println("\nCycle Detected");
+                break;
+            }
+            set.add(node);
+            node = node.next;
+        }
     }
 
     private static void testCircularLinkedList() {
