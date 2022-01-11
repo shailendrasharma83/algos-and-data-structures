@@ -55,8 +55,12 @@ public class InsertAtPositionInLinkedList {
         list.insert(2);
         System.out.println("\n------------Insert--------------");
         list.printList();
+        System.out.println("\n------------Reverse--------------");
+        list.reverse();
+        list.printList();
 
         /*Create loop for testing */
+        /*ALso read Floyd’s Cycle detection algorithm   */
         list.head.next.next.next.next.next.next.next.next = list.head;
 
         SingleLinkedList.Node node = list.head;
