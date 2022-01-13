@@ -20,5 +20,11 @@ public class TreeOperations {
 
         System.out.println("Min Value :: " + bTree.min());
         System.out.println("Max Value :: " + bTree.max());
+
+        bTree.delete(15);
+        System.out.println();
+        bTree.traverseInOrder();
+        System.out.println();
+        System.out.println("Min Value :: " + bTree.min());
     }
 }

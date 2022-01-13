@@ -40,4 +40,31 @@ public class Tree {
         }
         return Integer.MAX_VALUE;
     }
+
+    public void delete(int value) {
+
+        root = delete(root, value);
+
+    }
+
+    private TreeNode delete(TreeNode subTreeNode, int value) {
+        if (subTreeNode == null) {
+            return subTreeNode;
+        }
+
+        if (value < subTreeNode.getData()) {
+            subTreeNode.setLeftChild(delete(subTreeNode.getLeftChild(), value));
+        } else if (value < subTreeNode.getData()) {
+            subTreeNode.setRightChild(delete(subTreeNode.getRightChild(), value));
+        } else {
+
+            // If node to be deleted has 0 or 1 child
+            if (subTreeNode.getLeftChild() == null) {
+                return subTreeNode.getRightChild();
+            } else if (subTreeNode.getRightChild() == null) {
+                return subTreeNode.getLeftChild();
+            }
+        }
+        return subTreeNode;
+    }
 }
