@@ -20,6 +20,12 @@ public class Tree {
         }
     }
 
+    public void traversePreOrder() {
+        if (!isNull(root)) {
+            root.traversePreOrder();
+        }
+    }
+
     public TreeNode get(int value) {
         if (!isNull(root)) {
             return root.get(value);
@@ -64,6 +70,19 @@ public class Tree {
             } else if (subTreeNode.getRightChild() == null) {
                 return subTreeNode.getLeftChild();
             }
+
+            // If node to be deleted has 2 child
+            subTreeNode.setData(subTreeNode.getRightChild().min());
+
+            // or
+            // subTreeNode.setData(subTreeNode.getLeftChild().max());
+
+            //delete the node with the smallest value;
+            subTreeNode.setRightChild(delete(subTreeNode.getRightChild(), subTreeNode.getData()));
+
+            // or delete the node with the largest value;
+            //subTreeNode.setLeftChild(delete(subTreeNode.getLeftChild(), subTreeNode.getData()));
+
         }
         return subTreeNode;
     }

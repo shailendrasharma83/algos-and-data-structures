@@ -14,6 +14,17 @@ public class TreeOperations {
         bTree.traverseInOrder();
         System.out.println();
 
+        bTree.insert(28);
+
+        bTree.traverseInOrder();
+        System.out.println();
+
+        bTree.insert(16);
+
+        bTree.traverseInOrder();
+        System.out.println();
+        bTree.traversePreOrder();
+
         System.out.println(bTree.get(15));
         System.out.println(bTree.get(30));
         System.out.println(bTree.get(111));

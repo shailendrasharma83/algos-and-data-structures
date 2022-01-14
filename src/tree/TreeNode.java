@@ -52,6 +52,19 @@ public class TreeNode {
         }
     }
 
+    public void traversePreOrder() {
+        System.out.print(this.data + ",");
+
+        if (this.leftChild != null) {
+            this.leftChild.traversePreOrder();
+        }
+
+
+        if (this.rightChild != null) {
+            this.rightChild.traversePreOrder();
+        }
+    }
+
     public TreeNode get(int value) {
         if (this.data == value) {
             return this;
