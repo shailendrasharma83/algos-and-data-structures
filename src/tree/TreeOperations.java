@@ -11,31 +11,34 @@ public class TreeOperations {
             bTree.insert(item);
         }
 
-        bTree.traverseInOrder();
-        System.out.println();
+//        bTree.traverseInOrder();
+//        System.out.println();
+//
+//        bTree.insert(28);
+//
+//        bTree.traverseInOrder();
+//        System.out.println();
+//
+//        bTree.insert(16);
+//
+//        bTree.traverseInOrder();
+//        System.out.println();
+//        bTree.traversePreOrder();
+//
+//        System.out.println(bTree.get(15));
+//        System.out.println(bTree.get(30));
+//        System.out.println(bTree.get(111));
+//
+//        System.out.println("Min Value :: " + bTree.min());
+//        System.out.println("Max Value :: " + bTree.max());
+//
+//        bTree.delete(15);
+//        System.out.println();
+//        bTree.traverseInOrder();
+//        System.out.println();
+//        System.out.println("Min Value :: " + bTree.min());
 
-        bTree.insert(28);
-
-        bTree.traverseInOrder();
-        System.out.println();
-
-        bTree.insert(16);
-
-        bTree.traverseInOrder();
-        System.out.println();
-        bTree.traversePreOrder();
-
-        System.out.println(bTree.get(15));
-        System.out.println(bTree.get(30));
-        System.out.println(bTree.get(111));
-
-        System.out.println("Min Value :: " + bTree.min());
-        System.out.println("Max Value :: " + bTree.max());
-
-        bTree.delete(15);
-        System.out.println();
-        bTree.traverseInOrder();
-        System.out.println();
-        System.out.println("Min Value :: " + bTree.min());
+        System.out.println(bTree.height());
+        bTree.traverseInLevel();
     }
 }

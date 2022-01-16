@@ -1,5 +1,8 @@
 package tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import static java.util.Objects.isNull;
 
 public class TreeNode {
@@ -64,6 +67,29 @@ public class TreeNode {
             this.rightChild.traversePreOrder();
         }
     }
+
+    public void traverseLevelOrder() {
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(this);
+
+        while (!queue.isEmpty()) {
+            TreeNode tempNode = queue.poll();
+
+            System.out.print(tempNode.getData() + " ");
+
+            /*Enqueue left child */
+            if (tempNode.leftChild != null) {
+                queue.add(tempNode.leftChild);
+            }
+
+            /*Enqueue right child */
+            if (tempNode.rightChild != null) {
+                queue.add(tempNode.rightChild);
+            }
+        }
+    }
+
 
     public TreeNode get(int value) {
         if (this.data == value) {

@@ -86,4 +86,33 @@ public class Tree {
         }
         return subTreeNode;
     }
+
+
+    public int height() {
+        return height(root);
+    }
+
+    private int height(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int lHeight = height(root.getLeftChild());
+        int rHeight = height(root.getRightChild());
+
+        if (lHeight > rHeight) {
+            return (lHeight + 1);
+        } else {
+            return (rHeight + 1);
+        }
+    }
+
+    public void traverseInLevel() {
+        if (root != null) {
+            root.traverseLevelOrder();
+        }
+
+    }
+
+
 }
