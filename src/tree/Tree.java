@@ -93,7 +93,7 @@ public class Tree {
     }
 
     private int height(TreeNode root) {
-        if (root == null) {
+        if (root == null){
             return 0;
         }
 
@@ -105,6 +105,8 @@ public class Tree {
         } else {
             return (rHeight + 1);
         }
+
+        //or return 1+Math.max(height(root.getLeftChild()), height(root.getRightChild()));
     }
 
     public void traverseInLevel() {
