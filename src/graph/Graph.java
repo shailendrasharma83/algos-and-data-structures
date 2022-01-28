@@ -1,6 +1,9 @@
 package graph;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 public class Graph {
 
@@ -14,7 +17,7 @@ public class Graph {
 
     public void addUndirectedEdgeToMatrix(int i, int j) {
         this.adjacencyMatrix[i][j] = 1;
-        this.adjacencyMatrix[j][1] = 1;
+        this.adjacencyMatrix[j][i] = 1;
     }
 
     public void addUndirectedEdgeToList(int i, int j) {
@@ -60,5 +63,64 @@ public class Graph {
         return nodesSb.toString();
     }
 
+    public void bfsVisit(GraphNode node) {
+        LinkedList<GraphNode> queue = new LinkedList<>();
+        queue.add(node);
+        while (!queue.isEmpty()) {
+            GraphNode currentNode = queue.remove(0);
+            currentNode.setVisited(true);
 
+            System.out.print(currentNode.getName() + " ");
+
+            for (GraphNode neighbor : getNeighbours(currentNode)) { // currentNode.getNeighbour() when using adjacency list
+                if (!neighbor.isVisited()) {
+                    queue.add(neighbor);
+                    neighbor.setVisited(true);
+                }
+            }
+        }
+    }
+
+    public void dfsVisit(GraphNode node) {
+        Stack<GraphNode> stack = new Stack();
+        stack.push(node);
+
+        while (!stack.isEmpty()) {
+            GraphNode currentNode = stack.pop();
+            currentNode.setVisited(true);
+
+            System.out.print(currentNode.getName() + " ");
+
+
+            for (GraphNode neighbor : getNeighbours(currentNode)) { // currentNode.getNeighbour() when using adjacency list
+                if (!neighbor.isVisited()) {
+                    stack.add(neighbor);
+                    neighbor.setVisited(true);
+                }
+            }
+        }
+    }
+
+    private List<GraphNode> getNeighbours(GraphNode node) {
+        List<GraphNode> neighbours = new ArrayList();
+        int index = node.getIndex();
+
+        for (int i = 0; i < adjacencyMatrix.length; i++) {
+            if (adjacencyMatrix[index][i] == 1) {
+                neighbours.add(nodeList.get(i));
+            }
+        }
+        return neighbours;
+
+    }
+
+    public void bfsTraversal() {
+        System.out.print("BFS Traversal :: ");
+        bfsVisit(nodeList.get(0));
+    }
+
+    public void dfsTraversal() {
+        System.out.print("\nDFS Traversal :: ");
+        dfsVisit(nodeList.get(0));
+    }
 }

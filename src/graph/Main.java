@@ -16,25 +16,37 @@ public class Main {
         nodeList.add(new GraphNode("E", 4));
 
         System.out.println(" ---------------  Graph as Adjacency Matrix -----------------");
-        Graph graphAsMatrix = new Graph(nodeList);
-        graphAsMatrix.addUndirectedEdgeToMatrix(0,1);
-        graphAsMatrix.addUndirectedEdgeToMatrix(0,2);
-        graphAsMatrix.addUndirectedEdgeToMatrix(0,3);
-        graphAsMatrix.addUndirectedEdgeToMatrix(1,4);
-        graphAsMatrix.addUndirectedEdgeToMatrix(2,3);
-        graphAsMatrix.addUndirectedEdgeToMatrix(3,4);
-        System.out.println(graphAsMatrix.printAdjacencyMatrix());
+        Graph graph = new Graph(nodeList);
+        graph.addUndirectedEdgeToMatrix(0, 1);
+        graph.addUndirectedEdgeToMatrix(0, 2);
+        graph.addUndirectedEdgeToMatrix(0, 3);
+        graph.addUndirectedEdgeToMatrix(1, 4);
+        graph.addUndirectedEdgeToMatrix(2, 3);
+        graph.addUndirectedEdgeToMatrix(3, 4);
+
+        System.out.println(graph.printAdjacencyMatrix());
 
 
-        Graph graphAsList = new Graph(nodeList);
-        graphAsMatrix.addUndirectedEdgeToList(0,1);
-        graphAsMatrix.addUndirectedEdgeToList(0,2);
-        graphAsMatrix.addUndirectedEdgeToList(0,3);
-        graphAsMatrix.addUndirectedEdgeToList(1,4);
-        graphAsMatrix.addUndirectedEdgeToList(2,3);
-        graphAsMatrix.addUndirectedEdgeToList(3,4);
+        graph.addUndirectedEdgeToList(0, 1);
+        graph.addUndirectedEdgeToList(0, 2);
+        graph.addUndirectedEdgeToList(0, 3);
+        graph.addUndirectedEdgeToList(1, 4);
+        graph.addUndirectedEdgeToList(2, 3);
+        graph.addUndirectedEdgeToList(3, 4);
 
         System.out.println(" ---------------  Graph as Adjacency List -----------------");
-        System.out.println(graphAsList.printAdjacencyList());
+        System.out.println(graph.printAdjacencyList());
+
+        graph.bfsTraversal();
+
+        resetNodesVisitStatus(nodeList);
+
+        graph.dfsTraversal();
+    }
+
+    private static void resetNodesVisitStatus(List<GraphNode> nodeList) {
+        for (int i = 0; i < nodeList.size(); i++) {
+            nodeList.get(i).setVisited(false);
+        }
     }
 }
