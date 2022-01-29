@@ -28,6 +28,13 @@ public class Graph {
         second.getNeighbour().add(first);
     }
 
+    public void adddirectedEdgeToList(int i, int j) {
+        GraphNode first = nodeList.get(i);
+        GraphNode second = nodeList.get(j);
+
+        first.getNeighbour().add(second);
+    }
+
     public String printAdjacencyMatrix() {
 
         StringBuffer nodesSb = new StringBuffer();
@@ -116,11 +123,44 @@ public class Graph {
 
     public void bfsTraversal() {
         System.out.print("BFS Traversal :: ");
-        bfsVisit(nodeList.get(0));
+        for (GraphNode node : nodeList) {
+            if (!node.isVisited()) {
+                bfsVisit(node);
+            }
+        }
     }
 
     public void dfsTraversal() {
         System.out.print("\nDFS Traversal :: ");
-        dfsVisit(nodeList.get(0));
+        for (GraphNode node : nodeList) {
+            if (!node.isVisited()) {
+                dfsVisit(nodeList.get(0));
+            }
+        }
+    }
+
+    private void topologicalVisit(GraphNode node, Stack stack) {
+
+        for (GraphNode neighbour : node.getNeighbour()) {
+            if (!neighbour.isVisited()) {
+                topologicalVisit(neighbour, stack);
+            }
+        }
+
+        stack.push(node);
+        node.setVisited(true);
+    }
+
+    public void topologicaSort() {
+        Stack stack = new Stack();
+        for (GraphNode node : nodeList) {
+            if (!node.isVisited())
+                topologicalVisit(node, stack);
+        }
+
+        while (!stack.isEmpty()) {
+            GraphNode node = (GraphNode) stack.pop();
+            System.out.print(node.getName() + " ");
+        }
     }
 }
