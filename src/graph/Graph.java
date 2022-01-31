@@ -151,7 +151,7 @@ public class Graph {
         node.setVisited(true);
     }
 
-    public void topologicaSort() {
+    public void topologicalSort() {
         Stack stack = new Stack();
         for (GraphNode node : nodeList) {
             if (!node.isVisited())
@@ -162,5 +162,34 @@ public class Graph {
             GraphNode node = (GraphNode) stack.pop();
             System.out.print(node.getName() + " ");
         }
+    }
+
+    public void SSSPPUsingBFS(GraphNode node) {
+        LinkedList<GraphNode> queue = new LinkedList();
+        queue.add(node);
+
+        while (!queue.isEmpty()) {
+
+            GraphNode currentNode = queue.remove(0);
+            currentNode.setVisited(true);
+            System.out.print("Path for Node " + currentNode.getName() + " : ");
+            printPath(currentNode);
+            System.out.println();
+
+            for (GraphNode neighbour : currentNode.getNeighbour()) {
+                if (!neighbour.isVisited()) {
+                    queue.add(neighbour);
+                    neighbour.setVisited(true);
+                    neighbour.setParent(currentNode);
+                }
+            }
+        }
+    }
+
+    private void printPath(GraphNode node) {
+        if (node.getParent() != null) {
+            printPath(node.getParent());
+        }
+        System.out.print(node.getName() + " ");
     }
 }

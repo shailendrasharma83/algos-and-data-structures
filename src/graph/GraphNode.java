@@ -7,6 +7,7 @@ public class GraphNode {
     private String name;
     private int index;
     private boolean visited;
+    private GraphNode parent;
     private List<GraphNode> neighbour = new ArrayList<>();
 
 
@@ -33,5 +34,13 @@ public class GraphNode {
 
     public void setVisited(boolean visited) {
         this.visited = visited;
+    }
+
+    public GraphNode getParent() {
+        return parent;
+    }
+
+    public void setParent(GraphNode parent) {
+        this.parent = parent;
     }
 }
