@@ -1,4 +1,4 @@
-package sorting;
+package recursion;
 
 public class RecursionFactorial {
 
