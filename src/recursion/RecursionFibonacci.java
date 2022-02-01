@@ -13,14 +13,10 @@ public class RecursionFibonacci {
 
 
     private static int fibonacciRecursion(int size) {
-        if (size == 0) {
-            return 0;
-        }
 
-        if (size == 1 || size == 2) {
-            return 1;
+        if (size == 0 || size == 1) {
+            return size;
         }
-
         return fibonacciRecursion(size - 2) + fibonacciRecursion(size - 1);
     }
 }

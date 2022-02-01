@@ -29,6 +29,7 @@ public class RecursionFactorial {
     }
 
     private static int recussiveFactorial(int number) {
+        if(number < 0) return -1;
 
         if(number == 1) {
             return 1;
