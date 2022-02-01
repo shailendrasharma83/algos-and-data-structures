@@ -77,8 +77,6 @@ public class Main {
         graph.addDirectedWeightedEdge(5,6,7);
 
         System.out.println("Printing Dijkstras from source A");
-        //Set distance of start node to 0
-        nodeList.get(0).distance = 0;
         graph.dijkstrasSPP(nodeList.get(0));
 
     }

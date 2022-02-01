@@ -20,7 +20,9 @@ public class WeightedGraph {
     }
 
 
-    public void dijkstrasSPP(WeightedNode node) {
+    public void dijkstrasSPP(WeightedNode sourceNode) {
+        //Set distance of start node to 0
+        sourceNode.distance = 0;
 
         PriorityQueue<WeightedNode> queue = new PriorityQueue<>();
         queue.addAll(nodeList);
