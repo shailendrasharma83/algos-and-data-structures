@@ -7,6 +7,8 @@ public class BalancedBrackets {
 
     public static void main(String[] args) {
         System.out.println(isBalancedUsingQueue("}][}}(}][))]"));
+        System.out.println(isBalancedUsingQueue("{[()]}"));
+        System.out.println(isBalancedUsingStack("{[()]}"));
     }
 
     public static String isBalancedUsingQueue(String s) {
@@ -28,6 +30,27 @@ public class BalancedBrackets {
             }
         }
         return "YES";
+    }
+
+    public static boolean isBalancedUsingStack(String s) {
+        if (s.length() % 2 != 0) {
+            return false;
+        }
+
+        Stack stack = new Stack();
+        char[] ch = s.toCharArray();
+        for (int i = 0; i < ch.length; i++) {
+            if (ch[i] == '{' || ch[i] == '[' || ch[i] == '(') {
+                stack.push(ch[i]);
+            } else if (((char)stack.peek() == '{' && ch[i] == '}')
+                    || ((char)stack.peek() == '[' && ch[i] == ']') ||
+                    ((char)stack.peek() == '(' && ch[i] == ')')) {
+                stack.pop();
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
 
 
