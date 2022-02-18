@@ -1,5 +1,9 @@
 package recursion;
 
+/*
+* Given a list of the available denominations, determine if it's possible to receive exact
+* change for an amount of money targetMoney.
+* */
 public class ChangeInAForeignCurrency {
 
     public static void main(String[] args) {
